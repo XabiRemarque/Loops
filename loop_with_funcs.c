@@ -27,14 +27,10 @@ int sum(int array[], int size)
 
 int mid(int array[], int size)
 {
-    int sum = 0;
-    for (int i = 0; i < size; i++)
-    {
-        sum += array[i];
-    }
     printf("\n");
-    float mid = (float)sum / size;
+    int sum_i = sum(array, size);
     printf("Middle number: ");
+    float mid = (float)sum_i / size;
     printf("%.1f ", mid);
     printf("\n");
     return mid;
