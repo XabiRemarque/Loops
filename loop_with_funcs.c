@@ -12,24 +12,35 @@ void print_arr(int array[], int size)
     printf("\n");
 }
 
-void sum_and_mid(int array[], int size)
+int sum(int array[], int size)
 {
-    int sum_1 = 0;
+    int sum = 0;
     printf("Sum: ");
     for (int i = 0; i < size; i++)
     {
-        sum_1 += array[i];
+        sum += array[i];
     }
-    printf("%d ", sum_1);
+    printf("%d ", sum);
     printf("\n");
-
-    float mid_1 = (float)sum_1 / size;
-    printf("Middle number: ");
-    printf("%.1f ", mid_1);
-    printf("\n");
+    return sum;
 }
 
-void max_arr(int array[], int size)
+int mid(int array[], int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        sum += array[i];
+    }
+    printf("\n");
+    float mid = (float)sum / size;
+    printf("Middle number: ");
+    printf("%.1f ", mid);
+    printf("\n");
+    return mid;
+}
+
+int max_arr(int array[], int size)
 {
     int max = array[0];
     printf("Max number: ");
@@ -40,9 +51,10 @@ void max_arr(int array[], int size)
     }
     printf("%d ", max);
     printf("\n");
+    return max;
 }
 
-void min_arr(int array[], int size)
+int min_arr(int array[], int size)
 {
     int min = array[0];
     printf("Min number: ");
@@ -53,6 +65,7 @@ void min_arr(int array[], int size)
     }
     printf("%d ", min);
     printf("\n");
+    return min;
 }
 
 // Main
@@ -73,7 +86,8 @@ int main()
     }
 
     print_arr(arr1, N);
-    sum_and_mid(arr1, N);
+    sum(arr1, N);
+    mid(arr1, N);
     max_arr(arr1, N);
     min_arr(arr1, N);
 
@@ -89,7 +103,8 @@ int main()
     }
 
     print_arr(arr2, N);
-    sum_and_mid(arr2, N);
+    sum(arr2, N);
+    mid(arr2, N);
     max_arr(arr2, N);
     min_arr(arr2, N);
 
@@ -105,7 +120,8 @@ int main()
     }
 
     print_arr(arr3, N);
-    sum_and_mid(arr3, N);
+    sum(arr3, N);
+    mid(arr3, N);
     max_arr(arr3, N);
     min_arr(arr3, N);
 
@@ -132,7 +148,8 @@ int main()
     }
 
     print_arr(arr_total, len_total);
-    sum_and_mid(arr_total, len_total);
+    sum(arr_total, len_total);
+    mid(arr_total, len_total);
     max_arr(arr_total, len_total);
     min_arr(arr_total, len_total);
 }
