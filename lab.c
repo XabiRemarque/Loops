@@ -4,12 +4,6 @@
 
 // Funcs
 
-struct int_array
-{
-    int *array;
-    int size;
-};
-
 void fill_arr(int *array, int size)
 {
     for (int i = 0; i < size; i++)
@@ -77,26 +71,6 @@ int min_arr(int *array, int size)
     return min;
 }
 
-struct int_array arr_add(struct int_array loop_1, struct int_array loop_2)
-{
-
-    struct int_array loop_3;
-    loop_3.size = 0;
-    loop_3.array = malloc((loop_1.size + loop_2.size) * sizeof(int));
-
-    for (int i = 0; i < loop_1.size; i++)
-    {
-        loop_3.array[loop_3.size++] = loop_1.array[i];
-    }
-
-    for (int i = 0; i < loop_2.size; i++)
-    {
-        loop_3.array[loop_3.size++] = loop_2.array[i];
-    }
-
-    return loop_3;
-}
-
 // Main
 
 int main()
@@ -109,8 +83,6 @@ int main()
     int N_1 = 3;
 
     int *arr1 = malloc(N_1 * sizeof(int));
-
-    struct int_array lup1 = {arr1, N_1};
 
     fill_arr(arr1, N_1);
     print_arr(arr1, N_1);
@@ -128,8 +100,6 @@ int main()
     int N_2 = 5;
 
     int *arr2 = malloc(N_2 * sizeof(int));
-
-    struct int_array lup2 = {arr2, N_2};
 
     fill_arr(arr2, N_2);
     print_arr(arr2, N_2);
@@ -158,39 +128,37 @@ int main()
 
     // Loop Total
 
-    struct int_array tot_lup = arr_add(lup1, lup2);
+    printf("\nLoop Total\n");
+    printf("\n");
 
-    // printf("\nLoop Total\n");
-    // printf("\n");
+    int len_total = N_1 + N_2 + N_3;
+    int *arr_total = malloc(len_total * sizeof(int));
 
-    // int len_total = N_1 + N_2 + N_3;
-    // int *arr_total = malloc(len_total * sizeof(int));
+    int k = 0;
 
-    // int k = 0;
+    for (int i = 0; i < N_1; i++)
+    {
+        arr_total[k++] = arr1[i];
+    }
+    for (int i = 0; i < N_2; i++)
+    {
+        arr_total[k++] = arr2[i];
+    }
+    for (int i = 0; i < N_3; i++)
+    {
+        arr_total[k++] = arr3[i];
+    }
 
-    // for (int i = 0; i < N_1; i++)
-    // {
-    //     arr_total[k++] = arr1[i];
-    // }
-    // for (int i = 0; i < N_2; i++)
-    // {
-    //     arr_total[k++] = arr2[i];
-    // }
-    // for (int i = 0; i < N_3; i++)
-    // {
-    //     arr_total[k++] = arr3[i];
-    // }
-
-    // fill_arr(arr_total, len_total);
-    // print_arr(arr_total, len_total);
-    // int sum_print_total = sum(arr_total, len_total);
-    // printf("Sum: %d", sum_print_total);
-    // mid(arr_total, len_total);
-    // max_arr(arr_total, len_total);
-    // min_arr(arr_total, len_total);
+    fill_arr(arr_total, len_total);
+    print_arr(arr_total, len_total);
+    int sum_print_total = sum(arr_total, len_total);
+    printf("Sum: %d", sum_print_total);
+    mid(arr_total, len_total);
+    max_arr(arr_total, len_total);
+    min_arr(arr_total, len_total);
 
     free(arr1);
     free(arr2);
     free(arr3);
-    free(tot_lup.array);
+    free(arr_total);
 }
